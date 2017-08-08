@@ -1,0 +1,10 @@
+<?php
+
+const PERMISSION_DEFAULT = 1 << 0;
+const PERMISSION_AUTHORIZED = 1 << 1;
+
+const PERMISSION_ROLE_ADMIN = 1 << 30;
+const ROLE_ID_ADMIN = 1;
+
+const PERMISSION_FLAG_DEV = 1 << 29;
+const PERMISSION_FLAG_DEV_DESC = "Dev";

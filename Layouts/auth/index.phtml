@@ -1,0 +1,24 @@
+<?php $this->layout('app::default', array('title' => $title)) ?>
+
+<?php $this->push('head-src') ?>
+<link rel="stylesheet" href="<?= $this->asset('/assets/modules/auth/css/index.css') ?>">
+<script src="<?= $this->asset('/assets/js/app.js') ?>"></script>
+<?php $this->end() ?>
+
+<?php $this->push('footer-src') ?>
+<script src="<?= $this->asset('/assets/modules/auth/js/login.js') ?>"></script>
+<?php $this->end() ?>
+
+<form class="form-signin" >
+	<h2 class="form-signin-heading">Вход в систему</h2>
+	<label for="inputEmail" class="sr-only">Телефон</label>
+	<input id="phone" class="form-control" placeholder="Телефон" required autofocus>
+	<label for="pass" class="sr-only">Пароль</label>
+	<input type="password" id="pass" class="form-control" placeholder="Пароль" required>
+	<div class="checkbox">
+		<label>
+			<input type="checkbox" value="remember-me"> Запомнить меня
+		</label>
+	</div>
+	<button class="btn btn-lg btn-primary btn-block" >Войти</button>
+</form>
