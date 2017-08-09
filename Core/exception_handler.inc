@@ -4,7 +4,7 @@ namespace Core;
 
 set_exception_handler(function (\Throwable $e) {
 
-    $code = 400;
+    $code = 500;
     $message = "Internal Server Error";
     switch ($e->getCode()) {
         case 403:
@@ -13,8 +13,8 @@ set_exception_handler(function (\Throwable $e) {
         case 500:
         case 503:
             Log::F()->debug("Код: " . $e->getCode() . ", сообщение: " . $e->getMessage() . ' в ' . $e->getFile() . ', строка ' . $e->getLine() . "\n");
-            //$code = $e->getCode();
-           // $message = $e->getMessage();
+            $code = $e->getCode();
+            $message = $e->getMessage();
             break;
         case 1001:
             Log::F()->debug("Код: " . $e->getCode() . ", сообщение: " . $e->getMessage() . ' в ' . $e->getFile() . ', строка ' . $e->getLine() . "\n");
