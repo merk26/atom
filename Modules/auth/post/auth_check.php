@@ -2,7 +2,7 @@
 
 namespace Modules\auth\post;
 
-use Core\Exception\ClientPostException;
+use Core\Exception\BadRequestException;
 use \Core\Log;
 use \Modules\AbstractPostController;
 use \Models\User;
@@ -21,7 +21,7 @@ class auth_check extends AbstractPostController
         $phone = new Phone($this->phone);
 
         if ($phone->IsValid() === false)
-            throw new ClientPostException("Неверный номер телефона (" . $this->phone . ")");
+            throw new BadRequestException("Неверный номер телефона (" . $this->phone . ")");
 
         $pass = '$2y$10$ZHXPqq07vfhhLaMJlNJD/.LFPjoMHKhpdow1XQpFK.co2A/7er2Ii'; //123
 
@@ -30,6 +30,6 @@ class auth_check extends AbstractPostController
             Log::F()->info('Успешная авторизация с помощью логина и пароля.');
             $res['success'] = true;
         } else
-            throw new ClientPostException("Неверный пароль.");
+            throw new BadRequestException("Неверный пароль.");
     }
 }
